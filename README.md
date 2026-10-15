@@ -55,33 +55,60 @@
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
 ### `label_one`
+- Critique
 
 **Definition:**
+Evaluates baseball,a player,a game, or stats by expressing praise,critisism, or both.
 
 **Example 1:**
->
+>I didn't notice the Yankee bias live and don't really care. Having not watched ESPN in forever I was just horrified how bad it was overall. Two things that stuck out to me not mentioned in article: After Yoshida gets a PH single, Perez says "You are all wondering why he isn't being run for". No, I am not. It is the 7th inning, there is 1 out and a man on 1B only. He is a PH and you aren't wasting another bench spot. Who the hell would EVER pinch run there? After the Yankees used a challenge in the 9th, they say "....use your challenge there". They never mention there are 2 in the playoffs. You would only know it because the UMP said it. It completely changes the context of the challenge - it would have been insane to do with only 1 challenge.
 
 **Example 2:**
->
+>Casual fan, but is the umpiring worse than ever this season? Is it just getting more attention? It seems like every day something atrocious happens. Serious question, do professional umps have to take eye exams?
 
 ### `label_two`
+- Informative
 
 **Definition:**
+Gives a statement backed by a checkable fact. Can include a stat or a date.
 
 **Example 1:**
->
+> With their 2-1 loss to the Pirates the Chicago Cubs have lost 9 games in a row and With their last win coming against the Chicago White Sox on May 15th beating them 10-5
 
 **Example 2:**
->
+>Kyle Schwarber has 63 HR in his last 162 games played. Source: baseball reference game logs
+
+### `label_three`
+- Question
+
+**Definition:**
+Asks for information or insight on what could be a player, a game, or more about baseball.
+
+**Example 1:**
+>Hello fellow baseball fans. I've been listening to Sleep Baseball and it works great. I am always knocked out by the third inning when i hear a game on a podcast. Does your team put their play-by-play broadcasts on podcasts? Or are there any services that just put up random games for people to listen to after the fact? Thanks much in advance for your input!
+
+**Example 2:**
+> What's the saddest story or moment in baseball history? Make me cry
 
 ### The hardest boundary
 
 **Which two labels:**
 
+1. Informative & Critique
+
+2. Critique and Question
+
+3. Informative and Question
+
+
+
 **The decision rule I used every time:**
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
 
+- If the post primarily states or explains factual information, it's 'informative', even if it includes opinions.
+- If the post primarily expresses an opinion or evaluates a subject, it's 'critique', even if it includes statistics or facts.
+- If the post primarily asks the community for answers, explanations, or opinions, it's 'questionaries', even if it includes facts or personal opinions.
 
 
 ---
@@ -92,6 +119,8 @@
      cases. -->
 
 **Where the posts came from:**
+The posts came from a subreddit made for baseball. You can find the posts by searching "r/baseball".
+
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
@@ -112,24 +141,30 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 **1.**
 > *The post:*
->
+>Max Muncy got his eyes fixed a month ago. Since then he has 9 HRs and 31 RBIs.In his past seven games, he is hitting better than .400, has an OBP of .500, and has an OPS of .1727. He is the angriest man in baseball. He is suffocating. He is Maximum Muncy.
 > *Could have been:*
->
+> Informative
 > *I chose, because:*
+I chose critique, because of how this posts then after gives admiration due to the stats that they pointed out. This makes it praise.
+
 
 **2.**
 > *The post:*
->
+>What was the loudest crack of the bat you’ve heard in-person? EDIT: Here are the names coming up the most: Kyle Schwarber, Barry Bonds, Giancarlo Stanton, Shohei Ohtani, Bo Jackson
 > *Could have been:*
->
+> Critique
 > *I chose, because:*
+I chose question, because the main idea is a question on people's experience, although the names that come after can be seen as opinions.
+
 
 **3.**
 > *The post:*
->
+>Baseball fan returning to fan-hood after a long hiatus with a question about two-way player rules.If a pitcher with at least 20IP also starts 20 games at DH and has 3 PA in each of those games, he qualifies as a two-way player for the next two seasons. As a TWP, he wouldn't count towards the pitcher limit but could still pitch without position-player-pitching restrictions. That would allow his team to essentially carry 14 pitchers and 12 position players next season and the year after. Obviously this isn't as advantageous as actually having Ohtani, because you'd be short one bench player. But it seems--if only because MLB enforces a pitcher limit--like teams would still go for this if they could. So why don't teams that are out of the playoff picture this year pick a pitcher who’s controlled/signed for the next couple of years and have him DH until he qualifies as a TWP?
+
 > *Could have been:*
->
+> Informative
 > *I chose, because:*
+I chose question, because the rules the person states are used to then ask a question at the end.
 
 ---
 
