@@ -41,7 +41,7 @@
 
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
-
+This system takes in 200 posts from the subreddit r/baseball, and sorts them into one of three categories:"critique","question", and "informative". The classifier is first trained to identify the patterns among the 3 labels, and then is given the task to label posts it has never seen before using the patterns it has learned. This project is meant to determine how consistently and accurate the classifier can be at sorting the different posts.
 
 
 ---
@@ -173,14 +173,27 @@ I chose question, because even though the person gives their own opinion, they a
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
 **Base model:**
+- device: cpu (CPU) 
+- torch: 2.14.1+cpu 
+
 
 **Settings:** <!-- epochs, learning rate, batch size, seed -->
+- seed 42, 3 epochs, lr 2e-05, batch 16
 
 **Anything I changed from the defaults, and why:**
+- I did not change anything before my run.
 
 **Split sizes:** <!-- train / val / test, and per-label counts in the test
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
+
+train 139  ·  val 31  ·  test 30
+
+             train  val  test
+label                        
+critique        39    9     8
+informative     53   12    12
+question        47   10    10
 
 
 
@@ -198,14 +211,21 @@ of next unit's variance. -->
 **Moment 1**
 
 - *What I asked for:*
+I asked Claude to pre-label the remaining 180 posts based off the decision rules and labels I have made for labeling.
 - *What came back:*
+Claude labeled each post from one of the three categories, and noted "pre-labeled" on each one.
 - *What I changed:*
+4 of the posts were incorrectly labeled as I was reviewing, because they did not follow a decision rule I told it to keep in mind of. I labeled the posts the correct ones, and also made a note "changed" after each post to keep track of how many were updated.
 
 **Moment 2**
 
 - *What I asked for:*
+I asked Claude to help me understand what the f1 really meant and what was being calculated to get that number.
 - *What came back:*
+it explained that the f1 calculates two kinds of mistakes: Missed posts, and Wrong Calls. It takes in both and folds it into 1 score. Having fewer of each means a higher f1. Which is better.
 - *What I changed:*
+I made criterion 2 based off each labels f1: "All 3 labels have an F1 of at least .60.". This helped me evulate not only the whole accuracy of the WHOLE run, but the accuracy of each label.
+
 
 **Pre-labelling disclosure:**
 
