@@ -108,7 +108,7 @@ Asks for information or insight on what could be a player, a game, or more about
 
 - If the post primarily states or explains factual information, it's 'informative', even if it includes opinions.
 - If the post primarily expresses an opinion or evaluates a subject, it's 'critique', even if it includes statistics or facts.
-- If the post primarily asks the community for answers, explanations, or opinions, it's 'questionaries', even if it includes facts or personal opinions.
+- If the post primarily asks the community for answers, explanations, or opinions, it's 'question', even if it includes facts or personal opinions.
 
 
 ---
@@ -129,10 +129,10 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| informative | 77 | 38.5% |
+| question | 67 | 33.5% |
+| critique | 56 | 28% |
+| **Total** | 200 | 100% |
 
 **Three hard cases**
 
@@ -159,12 +159,12 @@ I chose question, because the main idea is a question on people's experience, al
 
 **3.**
 > *The post:*
->Baseball fan returning to fan-hood after a long hiatus with a question about two-way player rules.If a pitcher with at least 20IP also starts 20 games at DH and has 3 PA in each of those games, he qualifies as a two-way player for the next two seasons. As a TWP, he wouldn't count towards the pitcher limit but could still pitch without position-player-pitching restrictions. That would allow his team to essentially carry 14 pitchers and 12 position players next season and the year after. Obviously this isn't as advantageous as actually having Ohtani, because you'd be short one bench player. But it seems--if only because MLB enforces a pitcher limit--like teams would still go for this if they could. So why don't teams that are out of the playoff picture this year pick a pitcher who’s controlled/signed for the next couple of years and have him DH until he qualifies as a TWP?
+>What Player do you have zero respect for? Mine is without a doubt Marcell Ozuna of the Atlanta Braves. How in the McHell did he only get a 20 game suspension for what he did
 
 > *Could have been:*
-> Informative
+> Critique
 > *I chose, because:*
-I chose question, because the rules the person states are used to then ask a question at the end.
+I chose question, because even though the person gives their own opinion, they are asking for more opinions to be shared.
 
 ---
 
