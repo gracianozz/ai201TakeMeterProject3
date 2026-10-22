@@ -273,28 +273,30 @@ The model won on overall accuracy, but it was due to the 'informative' and 'ques
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1.  | Accuracy | >=.70 |  |  |  |
+| 2.  | Every label F1 | >=.60 |  |  |  |
+| 3.  | Label share | <=.60 |  |  |  |
+| 4.  | Classification Agreement | >=80% |  |  |  |
+| 5.  | Top-confidence pile  | >=90% |  |  |  |
+
+
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+| true \ predicted | critique | informative | question |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **critique** | 0 | 1 | 7 |
+| **informative** | 0 | 12 | 0 |
+| **question** | 0 | 0 | 10 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
-
+The model did not learn the decision boundary that separates the 'critique' label from the other two. Instead, it labeled 1 of the posts 'informative' and 7 of them 'question'.
 
 
 ---
@@ -335,7 +337,7 @@ The model won on overall accuracy, but it was due to the 'informative' and 'ques
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 26 / 30 = 87%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -359,23 +361,58 @@ The model won on overall accuracy, but it was due to the 'informative' and 'ques
 
 **1.**
 > *The post:*
->
+>"Checked the entry lists. 41% of this year's field have never run the distance before, against 26% five years ago. That's why the finish-line photos look different, not because standards dropped."
+
 > *Staff said / I said:*
->
+>'analysis'/'hot_take'
+
 > *My call, and why:*
->
+>I labeled it as hot_take, because I thought that the last sentence was an opinion being formed because of the stats used beforehand.
+
 > *Which pile:*
+Pile A
 
 **2.**
 > *The post:*
->
+>"Ran the same loop in 4C and in 24C within a fortnight, same effort by heart rate. 90 seconds slower in the heat over six miles. People keep saying heat costs you 'a bit' and it's more than that."
+
 > *Staff said / I said:*
->
+>'analysis'/'hot_take'
+
 > *My call, and why:*
->
+> The post's last sentence was more of that person's take on the heat, which seemd to use the stats to mention that heat was a factor when running, which is why i labeled it as 'hot_take'
+
 > *Which pile:*
+Pile A
+
+
+**3.**
+> *The post:*
+>"The 10K route was remeasured in 2021 and came out 60 metres long. Everyone comparing PBs from before and after that is comparing two different races, which is about 12 seconds at club pace."
+
+> *Staff said / I said:*
+>'analysis'/'hot_take'
+
+> *My call, and why:*
+> I labeled this post as 'hot_take', because it seemed like the post was talking more about a comparison of races.
+
+> *Which pile:*
+Pile A
+
+**4.**
+> *The post:*
+>"Three of us ran the same session on the same day, different shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do nothing, but whatever they do was smaller than the noise between three people."
+
+> *Staff said / I said:*
+>'analysis'/'hot_take'
+
+> *My call, and why:*
+>I labeled this post as 'hot_take', because of how it described a fact or stat which was followed by an opinion about the shoes.
+> *Which pile:*
+Pile C. With this post having more of an opinion based sentence towards the end, one could argue that the statistic talked about was used more as a standing point on their take on the shoes.
 
 **What the pattern in my disagreements tells me:**
+- For the most part, 3 of the 4 incorrect labels were applied loosely, because they followed the taxonomy of each label, but they were just labeled incorrectly. This shows more of a consistency problem following cold labeling and the taxonomy rules of each label.
 
 
 
