@@ -329,6 +329,8 @@ Criterion 1 was a miss. The cause: The model failed at learning how to classify 
 
 Criterion 2 was a miss. The cause: The model did not learn how to classify the 'critique' label. On every seed, critique posts were labelled 'question' or 'informative'. Another possible miss could be a boundary applied inconsistently. The agreement report I described mentioned that I loosely labelled. That may be a reason on why the critique label amount was the lowest.
 
+Both of these criterions can seem to have a pattern. Both failed due to the system failing at classifying the 'critique' label, which then made them fail at what each criterion was intended to target. 
+
 ---
 
 ## Agreement Report
@@ -423,24 +425,28 @@ Pile C. With this post having more of an opinion based sentence towards the end,
 ## The Improvement
 
 **What I changed:**
+I raised the epoch from 3 to 10 for the system.
 
 **Which diagnosis pointed at it:**
+Diagnosis for criterion 1: The model failed at learning how to classify the 'critique' label.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1.  | Accuracy | .933 | >=.70 | .933 | .867 | .767 | MET |
+| 2.  | Every label f1 | >=.60 | critique: .875, informative: 1.00, question: .900 | critique: .769, informative: .957, question: .833| critique: .462, informative: .917, question: .783 | MISSED |
+| 3.  | Label share | <=60% | 38.5% | 38.5% | 38.5% | MET |
+| 4.  | Classification Agreement | >=80% | 87% | 87% | 87% | MET |
+| 5.  | Top third confidence pile | >=90% | 100% | 100% | 100% | MET |
+
+
 
 **Did it help, and how do I know:**
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
-
+Chaning the epoch from 3 to 10 shows that it did help. Giving the model more times to go through the dataset while its learning seemed to help it learn how to label the 'critique' label in the 'after' run. The model now averaged a .413 spread of f1 throughout all 3 runs. 
 
 
 ---
