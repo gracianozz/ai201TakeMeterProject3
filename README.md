@@ -271,13 +271,13 @@ The model won on overall accuracy, but it was due to the 'informative' and 'ques
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
+| Criterion | Target | Seed 42 | Seed 7 | Seed 2024  | Verdict |
 |---|---|---|---|---|---|
-| 1.  | Accuracy | >=.70 |  |  |  |
-| 2.  | Every label F1 | >=.60 |  |  |  |
-| 3.  | Label share | <=.60 |  |  |  |
-| 4.  | Classification Agreement | >=80% |  |  |  |
-| 5.  | Top-confidence pile  | >=90% |  |  |  |
+| 1.  | Accuracy | >=.70 | .733 | .667 | .700 | MISSED |
+| 2.  | Every label F1 | >=.60 | critique:0.00, informative: 0.960, question: .741 | critique:0.00, informative: 0.786, question: .750  | critique:0.182, informative: .846, question: .783  | MISSED |
+| 3.  | Label share | <=60% | 38.5% | 38.5% | 38.5% | MET |
+| 4.  | Classification Agreement | >=80% | 87% | 87% | 87% | MET |
+| 5.  | Top third confidence pile  | >=90% | 100% | 100% | 100% | MET |
 
 
 
@@ -308,11 +308,11 @@ The model did not learn the decision boundary that separates the 'critique' labe
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Accuracy | >=.70 | MISSED | Seed 7 was .667,which was lower than the target accuracy. This made the whole criterion a miss. | 
+| 2 | Every label f1 | >=.60 | MISSED | The 'critique' labeled stayed under the f1 mark for all 3 runs, which meant the system did not learn how to classify the 'critique' labels properly. This made it a miss. |
+| 3 | Label Share | <=60% | MET  | The highest label made up 38.5% of the posts throughout all the runs, which meant it stayed well under the 60% mark. |
+| 4 | Classification Agreement | >=80% | MET | This criterion measures how well someone new would agree on the labels of posts, so I used the percentage of the agreement report previously to measure this criterion. I obtained an 87% agreement rate. This was achived by using the taxonomy and definitions on how to classify each post with labels. |
+| 5 | Top third confidence pile | >=90% | MET | In section 5, under the results for each label f1, it gives a score of 1.000 for the most sure third pile, meaning it got the all 10 of the confident predictions right. |
 
 **Diagnoses**
 
@@ -325,7 +325,9 @@ The model did not learn the decision boundary that separates the 'critique' labe
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
 
+Criterion 1 was a miss. The cause: The model failed at learning how to classify the 'critique' label. This made the accuracy overall lower and cap out at .733. Seed 7 was the lowest out of the three, with a .667 accuracy. Having the 'critique' label learned by the model will help in boosting the overall accuracy for each run. 
 
+Criterion 2 was a miss. The cause: The model did not learn how to classify the 'critique' label. On every seed, critique posts were labelled 'question' or 'informative'. Another possible miss could be a boundary applied inconsistently. The agreement report I described mentioned that I loosely labelled. That may be a reason on why the critique label amount was the lowest.
 
 ---
 

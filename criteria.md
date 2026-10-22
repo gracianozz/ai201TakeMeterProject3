@@ -96,7 +96,11 @@ This checks whether the logic in my labeling is actually consistent. Since the m
 ---
 
 ## 5.
-The models top confidence pile is right 90% of the time.
+Original: The models top confidence pile is right 90% of the time.
+
+Revised: The models TOP THIRD confidence pile is right 90% of the time.
+
+Why: This makes the criterion measurable, since the pile size or threshold size was not mentioned. This helps me produce a verdict.
 <!-- Your criterion. -->
 
 
