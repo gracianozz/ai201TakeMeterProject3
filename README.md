@@ -55,7 +55,7 @@ This system takes in 200 posts from the subreddit r/baseball, and sorts them int
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
 ### `label_one`
-- Critique
+Critique
 
 **Definition:**
 Evaluates baseball,a player,a game, or stats by expressing praise,critisism, or both.
@@ -67,7 +67,7 @@ Evaluates baseball,a player,a game, or stats by expressing praise,critisism, or 
 >Casual fan, but is the umpiring worse than ever this season? Is it just getting more attention? It seems like every day something atrocious happens. Serious question, do professional umps have to take eye exams?
 
 ### `label_two`
-- Informative
+Informative
 
 **Definition:**
 Gives a statement backed by a checkable fact. Can include a stat or a date.
@@ -79,7 +79,7 @@ Gives a statement backed by a checkable fact. Can include a stat or a date.
 >Kyle Schwarber has 63 HR in his last 162 games played. Source: baseball reference game logs
 
 ### `label_three`
-- Question
+Question
 
 **Definition:**
 Asks for information or insight on what could be a player, a game, or more about baseball.
@@ -124,6 +124,8 @@ The posts came from a subreddit made for baseball. You can find the posts by sea
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
+
+I first labeled the first 20 posts by myself using the rules on how to determine the label. After, I asked Claude to pre-label them, which I then after checked each and labeled them checked, with an extra note "changed" for the ones I corrected.
 
 **Counts per label:**
 
@@ -243,19 +245,23 @@ I made criterion 2 based off each labels f1: "All 3 labels have an F1 of at leas
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.667 | 0.733 | +0.067 |
+| Macro F1 | 0.577 | 0.567 | -0.011 |
+| F1 — `critique` | 0.200 | 0.000 | -0.200 |
+| F1 — `informative` | 0.818 | 0.960 | +0.142 |
+| F1 — `question` | 0.714 | 0.741 | +0.026 |
+
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+I expect my trained model to beat the baseline model on overall accuracy and Macro f1, since the trained model has learned from more than 100 baseball posts. The baseline model has only seen my three label definitions.
+
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
-
+The model won on overall accuracy, but it was due to the 'informative' and 'question' labels. The trained model failed to recognize the 'critique' label, which meant that the f1 score for that label in the trained model was scored a 0, which affected the Macro f1. This meant that the baseline model got a higher Macro f1 score.
 
 
 ---

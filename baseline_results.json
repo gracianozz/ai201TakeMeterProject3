@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.6666666666666666,
+    "f1_macro": 0.5774891774891775,
+    "per_label": {
+      "critique": {
+        "precision": 0.5,
+        "recall": 0.125,
+        "f1": 0.2,
+        "support": 8
+      },
+      "informative": {
+        "precision": 0.9,
+        "recall": 0.75,
+        "f1": 0.8181818181818182,
+        "support": 12
+      },
+      "question": {
+        "precision": 0.5555555555555556,
+        "recall": 1.0,
+        "f1": 0.7142857142857143,
+        "support": 10
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "We are three Brewers wins away from a Will Smith not winning the World Series for the first time since 2019",
+      "gold": "informative",
+      "predicted": "critique"
+    },
+    {
+      "text": "Now that we're in 2026, do you think a lockout is actually going to happen after this season? Do you think it would be just like the 2021-22 lockout or worse?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "What\u2019s the real home run record to you? If Judge hit 62 would it make it more legitimate than Bonds, Sosa, and McGuire\u2019s long ball seasons?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Jacob Misiorowski is on pace to break the single-season WHIP record. As of his most recent start, he has an 0.732 WHIP. The all-time record in a full season is 0.737, by Pedro Martinez in his legendary 2000 season. Since the beginning of May he's had a WHIP of 0.604, which is even more wild.",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "The dodgers aren\u2019t quite as invincible as they seem. I know that might sound stupid given the recent Skubal trade, but here are some things to consider:Blake Snell, Will Smith, Tyler Glasnow, and several other players are on the 60 day Injury List. Ohtani has been dealing with knee issues and may not throw another pitch this season. Kyle Tucker, Roki Sasaki, and Dalton Rushing have all regressed.Don\u2019t get me wrong, the dodgers are still very much a super team. But things go show that the Dodgers are beatable.It\u2019s very possible that someone could beat them in the playoffs, especially if the injuries keep popping up.",
+      "gold": "critique",
+      "predicted": "informative"
+    },
+    {
+      "text": "After their win against the Dodgers the Red Sox have gone 21-4 in the month of July. An all time record for any month in Red Sox history.",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "Do you think one of Juan Soto / Acuna Jr / Tatis Jr / Vlad JR will reach 100+ WAR in their Career?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "The Rays bullpen line against the Guardians in Game 1 of the ALCS: 3 IP, 6 H, 5 R/ER, 1 BB, 3 K",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "Nashville Future MLB Expansion, Why is MLB so committed to expand to Nashville when there is no 1. ownership group 2. stadium site or 3. public financing in place? Raleigh seems to be much further along, as well as Orlando, although I don't think Florida needs a 3rd team.",
+      "gold": "critique",
+      "predicted": "question"
+    },
+    {
+      "text": "Jo Adell now has more postseason RBI (4) than Mike Trout (1) It's rough out here",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "Why do MLB teams celebrate winning a playoff series but not in the NBA? In the NBA, nobody celebrates winning the first round of the playoffs. Or heck even the conference finals. They only celebrate if they win the World Series. Yet in the MLB, every playoff round victory is celebrated. Why is that the case?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I'm convinced the MLB community is only against the salary cap due to the Owners and Manfred being for it.",
+      "gold": "critique",
+      "predicted": "critique"
+    },
+    {
+      "text": "Other then Deion Sanders and Bo Jackson, or anyone who actually played in another pro sport, which MLB player would be a pro in a different sport?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Hey guys looking for a source about a player (preferably a pitcher) who was publicly dating a reporter. Anything that sounds familiar to this story I\u2019d appreciate if you sent it my way. If you know you know.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Let's say the Dodgers successfully 3-peat. What exactly would happen?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "The Padres have lost 9 of their last 10 games. Playing the Phillies twice didn't help with their offensive struggles.",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "The Guardians\u2019 bullpen line in their Game 1 ALCS win over the Rays: 5 IP, 2 H, 1 R/ER, 2 BB, 5 K",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "With 5 runs scored so far (through 11 offensive innings) in the 2026 NLCS, the Brewers have scored more runs than they did in the 2025 NLCS (4)",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "Until this year, the Guardians and White Sox have never faced each other in the playoffs, despite both franchises existing for 130+ years.",
+      "gold": "informative",
+      "predicted": "question"
+    },
+    {
+      "text": "Miami Marlins attendance is horrible!!! What the hell is going on down in Miami? I tuned in for opening night and was shocked to see so many empty seats. Even the fancy seats behind and around home plate were at least half empty, ON OPENING NIGHT??? Then I watched last nights game and it was even worse. Has their attendance always been this bad?",
+      "gold": "critique",
+      "predicted": "question"
+    },
+    {
+      "text": "How does Harold Reynolds have a job? Harold Reynolds stinks. He only says how great everybody is and how much he loves baseball. He makes comments and has nothing to back them up. He actually said today Schwarber shouldn't play left field for the Cubs because Chicago is known as the windy city so how would he handle the wind....UMMMM does Harold not know that nickname is because of Chicago's political corruptions throughout the years. I have also heard him say in the offseason that the Dodgers are a better team without Hanley Ramirez, and then less than 10 minutes later say how Boston was better with signings like Hanley Ramirez because he is always a MVP candidate. Way to make sense Harold. Sorry, but Harold needs to go ASAP. Those are just two examples off the top my head I know thinking for 10 seconds that I can think of him just being dumb.",
+      "gold": "critique",
+      "predicted": "question"
+    },
+    {
+      "text": "Griffin Jax is making his major league debut tonight for the Twins. He is the first player from the United States Air Force Academy to play in MLB.",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "Who is your biggest \"they had all the tools but just couldn't figure it out\" player?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I don't think we realize how historically bad the Cubs pitching staff is this season.",
+      "gold": "critique",
+      "predicted": "question"
+    },
+    {
+      "text": "Watching the HR Derby now and seeing this crowd - Cleveland had to change their entire name and logo. I\u2019m just wondering where the line is",
+      "gold": "critique",
+      "predicted": "question"
+    },
+    {
+      "text": "After facing the top of the Padres order and a line of 1 IP, 0 H, 0 ER/R, and 2 K, Edwin Diaz\u2019s ERA is back under 10 (9.72) for the first time since Aug 10.",
+      "gold": "informative",
+      "predicted": "informative"
+    },
+    {
+      "text": "Who is everybody rooting for between Brewers and Dodgers?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Seeing so many stupid ABS challenges by batters who get rung up in the first inning because they refuse to accept they struck out looking..? How is this dealed with within teams? I can imagine the frustration of team players and managers that some stupid selfish challenge costs you one of your two opportunities. Is this not frowned upon within the organization? Does anyone know of how some teams differ regarding their ABS challenge policies?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "The San Francisco Giants Brandon Belt just flyed out on the 21st pitch of his 1st at bat.",
+      "gold": "informative",
+      "predicted": "question"
+    },
+    {
+      "text": "I was talking to my dad the other day, reminiscing about how bad the early 2000s brewers were, and he mentioned how much he disliked Wes Helms. I looked at his baseball reference and his career WAR was -1.8 despite playing over 10 years. It got me thinking that there has to be worse players than Wes Helms that for some reason had longevity in the league.",
+      "gold": "critique",
+      "predicted": "question"
+    }
+  ]
+}
