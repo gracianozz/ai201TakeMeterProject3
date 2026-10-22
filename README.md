@@ -229,6 +229,32 @@ it explained that the f1 calculates two kinds of mistakes: Missed posts, and Wro
 I made criterion 2 based off each labels f1: "All 3 labels have an F1 of at least .60.". This helped me evulate not only the whole accuracy of the WHOLE run, but the accuracy of each label.
 
 
+
+
+## Unit 6, How I Used AI
+
+**Moment 3**
+
+- *What I asked for:*
+I asked Claude for clarification on what the epoch number meant for the system.
+- *What came back:*
+Claude explained in simple terms that the epoch numbers is basically the number of times goes through the data while learning.
+- *What I changed:*
+I asked Claude if this could be a possibility on why the system was not properly learning how to label the 'critique' model, and that the old epoch 3 might not be enough to let the model learn to fully recognize and learn the labels. This is why I chose this as a fixing strategy to fix my criterion 1.
+
+
+**Moment 4**
+
+- *What I asked for:*
+I asked Claude to help summarize how the confusion matrix works for before and after run.
+- *What came back:*
+Claude helped me understand each confusion matrix, for each seed, in the befoer and after runs.
+- *What I changed:*
+This information helped me understand what I was working with when it cames to what potentially I could fix in the system, as well as learning what the system could be good at.
+
+
+
+
 **Pre-labelling disclosure:**
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
@@ -242,6 +268,8 @@ I made criterion 2 based off each labels f1: "All 3 labels have an F1 of at leas
 
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
+
+These results are from the "before" run with epoch 3.
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
@@ -306,13 +334,13 @@ The model did not learn the decision boundary that separates the 'critique' labe
 <!-- MET or MISSED against LAST UNIT's target. The target has to hold across
      all three seeds, not turn up sometimes. -->
 
-| # | Criterion | Target | Verdict | How I decided |
+| Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 | Accuracy | >=.70 | MISSED | Seed 7 was .667,which was lower than the target accuracy. This made the whole criterion a miss. | 
-| 2 | Every label f1 | >=.60 | MISSED | The 'critique' labeled stayed under the f1 mark for all 3 runs, which meant the system did not learn how to classify the 'critique' labels properly. This made it a miss. |
-| 3 | Label Share | <=60% | MET  | The highest label made up 38.5% of the posts throughout all the runs, which meant it stayed well under the 60% mark. |
-| 4 | Classification Agreement | >=80% | MET | This criterion measures how well someone new would agree on the labels of posts, so I used the percentage of the agreement report previously to measure this criterion. I obtained an 87% agreement rate. This was achived by using the taxonomy and definitions on how to classify each post with labels. |
-| 5 | Top third confidence pile | >=90% | MET | In section 5, under the results for each label f1, it gives a score of 1.000 for the most sure third pile, meaning it got the all 10 of the confident predictions right. |
+| 1 Accuracy | >=.70 | MISSED | Seed 7 was .667,which was lower than the target accuracy. This made the whole criterion a miss. | 
+| 2 Every label f1 | >=.60 | MISSED | The 'critique' label stayed under the f1 mark for all 3 runs, which meant the system did not learn how to classify the 'critique' labels properly. This made it a miss. |
+| 3 Label Share | <=60% | MET  | The highest label made up 38.5% of the posts throughout all the runs, which meant it stayed well under the 60% mark. |
+| 4 Classification Agreement | >=80% | MET | This criterion measures how well someone new would agree on the labels of posts, so I used the percentage of the agreement report previously to measure this criterion. I obtained an 87% agreement rate. This was achieved by using the taxonomy and definitions on how to classify each post with labels. |
+| 5 Top third confidence pile | >=90% | MET | In section 5, under the results for each label f1, it gives a score of 1.000 for the most sure third pile, meaning it got the all 10 of the confident predictions right. |
 
 **Diagnoses**
 
@@ -327,9 +355,10 @@ The model did not learn the decision boundary that separates the 'critique' labe
 
 Criterion 1 was a miss. The cause: The model failed at learning how to classify the 'critique' label. This made the accuracy overall lower and cap out at .733. Seed 7 was the lowest out of the three, with a .667 accuracy. Having the 'critique' label learned by the model will help in boosting the overall accuracy for each run. 
 
-Criterion 2 was a miss. The cause: The model did not learn how to classify the 'critique' label. On every seed, critique posts were labelled 'question' or 'informative'. Another possible miss could be a boundary applied inconsistently. The agreement report I described mentioned that I loosely labelled. That may be a reason on why the critique label amount was the lowest.
+Criterion 2 was a miss. The cause: The model did not learn how to classify the 'critique' label. On every seed, critique posts were labelled 'question' or 'informative'. Another possible cause could be a boundary applied inconsistently. The agreement report I described mentioned that I loosely labelled. The 4 disagreements in the agreement report were fact/opinion posts where I judged which part was primary. That is the same call I am using for my informative vs. critique rule.
 
-Both of these criterions can seem to have a pattern. Both failed due to the system failing at classifying the 'critique' label, which then made them fail at what each criterion was intended to target. 
+Both of these criteria can seem to have a pattern. The model was undertrained, which affected the criterion f1 and affected the overall accuracy.
+
 
 ---
 
@@ -430,15 +459,17 @@ I raised the epoch from 3 to 10 for the system.
 **Which diagnosis pointed at it:**
 Diagnosis for criterion 1: The model failed at learning how to classify the 'critique' label.
 
+It also points at the diagnosis for criterion 2: Trying to get the model to be trained on the 'critique' label will help it have an actual f1 score throughout all seeds.
+
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  | Accuracy | .933 | >=.70 | .933 | .867 | .767 | MET |
-| 2.  | Every label f1 | >=.60 | critique: .875, informative: 1.00, question: .900 | critique: .769, informative: .957, question: .833| critique: .462, informative: .917, question: .783 | MISSED |
-| 3.  | Label share | <=60% | 38.5% | 38.5% | 38.5% | MET |
-| 4.  | Classification Agreement | >=80% | 87% | 87% | 87% | MET |
-| 5.  | Top third confidence pile | >=90% | 100% | 100% | 100% | MET |
+| 1. Accuracy| .933 | >=.70 | .933 | .867 | .767 | MET |
+| 2. Every label f1 | >=.60 | critique: .875, informative: 1.00, question: .900 | critique: .769, informative: .957, question: .833| critique: .462, informative: .917, question: .783 | MISSED |
+| 3. Label share | <=60% | 38.5% | 38.5% | 38.5% | MET |
+| 4. Classification Agreement | >=80% | 87% | 87% | 87% | MET |
+| 5. Top third confidence pile | >=90% | 100% | 100% | 100% | MET |
 
 
 
@@ -446,7 +477,8 @@ Diagnosis for criterion 1: The model failed at learning how to classify the 'cri
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
-Chaning the epoch from 3 to 10 shows that it did help. Giving the model more times to go through the dataset while its learning seemed to help it learn how to label the 'critique' label in the 'after' run. The model now averaged a .413 spread of f1 throughout all 3 runs. 
+Changing the epoch from 3 to 10 shows that it did help. Giving the model more times to go through the dataset while its learning seemed to help it learn how to label the 'critique' label in the 'after' run. The model now had an f1 of .875 in seed 42, .769 in seed 7, and .462 in seed 2024. This helped the accuracy go up for criterion 1, making it hit the MET verdict. Criterion 2 also improved. It went from 3 missed seeds to 1.
+
 
 
 ---
@@ -454,14 +486,22 @@ Chaning the epoch from 3 to 10 shows that it did help. Giving the model more tim
 ## What's Still Broken
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
-
-
+The criterion that was still missed after the fix I implemented was criterion 2. The f1 for 'critique' on the third run, with seed 2024, was .462. This was below the target score, which was >=.60. What I would do to fix this would be to add more posts for the label. Having more posts under the 'critique' label will help it have more of an even amount of posts compared to the other 2, since this label has the lowest amount. This would help raise the test count and help steady the overall score and help criterion 3 stay as "MET".
+I stopped after the first fix because i was past the 50 minute mark in the milestone and ran out of time.
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+What I meant my label 'critique' to capture was to cover any post whose main point was an evaluation, or judging, even though some were phrased as a question or backed up by a statistic. The model ruled with the question label instead: across the 3 after seeds it predicted 8 critique posts as a question and only 2 question posts as critique, which meant that a critique phrased as a question was read as a question to it.
 
 
+
+Confusion Matrix for after run: 
+| true \ predicted | critique | informative | question |
+|---|---|---|---|
+| **critique** | 7 | 0 | 1 |
+| **informative** | 0 | 12 | 0 |
+| **question** | 1 | 0 | 9 |
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
